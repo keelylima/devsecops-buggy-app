@@ -11,7 +11,7 @@ pipeline {
         } 
     stage('RunSCAAnalysisUsingSnyk') {
             steps {	
-		withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOEKEN')]) {
+		withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
 			// Esse -fn é para evitar falha no build, sabemos que tem vulnerabilidade mas queremos que ele complete o build mesmo assim
 			sh 'mvn snyk:test -fn'
 		}
