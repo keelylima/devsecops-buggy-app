@@ -312,7 +312,7 @@
       <version>2.0.0</version>
       <inherited>false</inherited>
       <configuration>
-        <org>security-keri-buggy-app</org>
+        <org>keelylima</org>
       </configuration>
     </plugin>
 <!-- Snyk Changes for SCA Ends Here -->
