@@ -15,7 +15,7 @@ pipeline {
 			// Esse -fn é para evitar falha no build, sabemos que tem vulnerabilidade mas queremos que ele complete o build mesmo assim
 			sh 'mvn snyk:test -fn'
 		}
-			}
+	   }
         } 
-  }
+    }
 }
