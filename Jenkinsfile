@@ -16,6 +16,25 @@ pipeline {
 			sh 'mvn snyk:test -fn'
 		}
 	   }
-        } 
+        }
+
+    stage('Build') { 
+            steps { 
+               withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
+                 script{
+                 app =  docker.build("devsecops-docker")
+                 }
+               }
+            }
+        }
+    stage('Push') {
+            steps {
+                script{
+                    docker.withRegistry('https://695680868060.dkr.ecr.us-east-1.amazonaws.com/devsecops', 'ecr:us-east-1:aws-credentials-devsecops') {
+                    app.push("latest")
+                    }
+                }
+            }
+    	}
     }
 }
